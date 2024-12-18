@@ -1,0 +1,506 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --blue:hsl(246, 80%, 60%);
+    --light-orange: hsl(15, 100%, 70%);
+    --soft-blue: hsl(195, 74%, 62%);
+    --light-red: hsl(348, 100%, 68%);
+    --lime-green: hsl(145, 58%, 55%);
+    --violet: hsl(264, 64%, 52%);
+    --soft-orange: hsl(43, 84%, 65%);
+    --very-dark-blue: hsl(226, 43%, 10%);
+    --dark-blue: hsl(235, 46%, 20%);
+    --desaturated-blue: hsl(235, 45%, 61%);
+    --pale-blue: hsl(236, 100%, 87%);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.125rem;
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--very-dark-blue);
+    
+}
+
+.board {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "header"
+    "content";
+    margin-top: 50px;
+}
+.board__header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "profile"
+    "nav";
+}
+.board__profile {
+    grid-area: profile;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "image-profile headline"
+    "image-profile name";
+    background-color: var(--blue);
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    z-index: 2;
+}
+.board__image-profile {
+    grid-area: image-profile;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin: 0 20px 0 6px;
+}
+.board__headline {
+    grid-area: headline;
+    font-size: 0.9375rem;
+    font-weight: 200;
+    color: var(--pale-blue);
+}
+.board__name {
+    grid-area: name;
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: white;
+}
+
+.board__nav {
+    grid-area: nav;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: auto;
+    column-gap: 45px;
+    padding: 33px 43px 22px 43px;
+    background-color: var(--dark-blue);
+    border-radius: 0 0 15px 15px;
+    position: relative;
+    z-index: 1;
+    top: -10px;
+}
+.board__tab-daily {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--pale-blue);
+}
+.board__tab-weekly {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--pale-blue);
+}
+.board__tab-monthly {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--pale-blue);
+}
+
+.board__content {
+    grid-area: content;
+    display: grid;
+    /* justify-content: center;
+    align-items: center; */
+    grid-template-columns: auto;
+    grid-template-rows: repeat(6, auto);
+    grid-template-areas:
+    "card-work"
+    "card-play"
+    "card-study"
+    "card-exercise"
+    "card-social"
+    "card-self-care";
+}
+.board__card-work {
+    grid-area: card-work;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "bg"
+    "info";
+    margin-bottom: 24px;
+    
+}
+.board__bg-card-work {
+    grid-area: bg;
+    background: var(--light-orange) url('images/icon-work.svg') no-repeat top right / 90.07px 48.28px;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    z-index: 1;
+    top: 10px; 
+}
+.board__card-work-info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "title dots"
+    "current previous";
+
+    background-color: var(--dark-blue);
+    position: relative;
+    z-index: 2;
+    border-radius: 15px;
+    padding: 30px;
+}
+.board__work-title {
+    grid-area: title;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+}
+.board__work-current-time {
+    grid-area: current;
+    font-size: 32px;
+    font-weight: 200;
+    color: white;
+}
+.board__work-previous-time {
+    grid-area: previous;
+    font-size: 15px;
+    font-weight: 200;
+    color: var(--pale-blue);
+    justify-self: end;    
+}
+.board__work-dots-icon {
+    grid: dots;
+    color: var(--pale-blue);
+    justify-self: end;
+}
+
+.board__card-play {
+    grid-area: card-play;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "bg"
+    "info";
+    margin-bottom: 24px;
+}
+.board__bg-card-play {
+    grid-area: bg;
+    background: var(--soft-blue) url('images/icon-play.svg') no-repeat top right / 90.07px 48.28px;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    z-index: 1;
+    top: 10px; 
+}
+.board__card-play-info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "title dots"
+    "current previous";
+
+    background-color: var(--dark-blue);
+    position: relative;
+    z-index: 2;
+    border-radius: 15px;
+    padding: 30px;
+}
+.board__play-title {
+    grid-area: title;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+}
+.board__play-current-time {
+    grid-area: current;
+    font-size: 32px;
+    font-weight: 200;
+    color: white;
+}
+.board__play-previous-time {
+    grid-area: previous;
+    font-size: 15px;
+    font-weight: 200;
+    color: var(--pale-blue);
+    justify-self: end;    
+}
+.board__play-dots-icon {
+    grid: dots;
+    color: var(--pale-blue);
+    justify-self: end;
+}
+
+/*STUDY*/
+.board__card-study {
+    grid-area: card-study;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "bg"
+    "info";
+    margin-bottom: 24px;
+}
+.board__bg-card-study {
+    grid-area: bg;
+    background: var(--light-red) url('images/icon-study.svg') no-repeat top right / 90.07px 48.28px;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    z-index: 1;
+    top: 10px; 
+}
+.board__card-study-info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "title dots"
+    "current previous";
+
+    background-color: var(--dark-blue);
+    position: relative;
+    z-index: 2;
+    border-radius: 15px;
+    padding: 30px;
+}
+.board__study-title {
+    grid-area: title;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+}
+.board__study-current-time {
+    grid-area: current;
+    font-size: 32px;
+    font-weight: 200;
+    color: white;
+}
+.board__study-previous-time {
+    grid-area: previous;
+    font-size: 15px;
+    font-weight: 200;
+    color: var(--pale-blue);
+    justify-self: end;    
+}
+.board__study-dots-icon {
+    grid: dots;
+    color: var(--pale-blue);
+    justify-self: end;
+}
+
+/*Exercise*/
+.board__card-exercise {
+    grid-area: card-exercise;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "bg"
+    "info";
+    margin-bottom: 24px;
+}
+.board__bg-card-exercise {
+    grid-area: bg;
+    background: var(--lime-green) url('images/icon-exercise.svg') no-repeat top right / 90.07px 48.28px;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    z-index: 1;
+    top: 10px; 
+}
+.board__card-exercise-info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "title dots"
+    "current previous";
+
+    background-color: var(--dark-blue);
+    position: relative;
+    z-index: 2;
+    border-radius: 15px;
+    padding: 30px;
+}
+.board__exercise-title {
+    grid-area: title;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+}
+.board__exercise-current-time {
+    grid-area: current;
+    font-size: 32px;
+    font-weight: 200;
+    color: white;
+}
+.board__exercise-previous-time {
+    grid-area: previous;
+    font-size: 15px;
+    font-weight: 200;
+    color: var(--pale-blue);
+    justify-self: end;    
+}
+.board__exercise-dots-icon {
+    grid: dots;
+    color: var(--pale-blue);
+    justify-self: end;
+}
+
+/*Social*/
+.board__card-social {
+    grid-area: card-social;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "bg"
+    "info";
+    margin-bottom: 24px;
+}
+.board__bg-card-social {
+    grid-area: bg;
+    background: var(--violet) url('images/icon-social.svg') no-repeat top right / 90.07px 48.28px;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    z-index: 1;
+    top: 10px; 
+}
+.board__card-social-info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "title dots"
+    "current previous";
+
+    background-color: var(--dark-blue);
+    position: relative;
+    z-index: 2;
+    border-radius: 15px;
+    padding: 30px;
+}
+.board__social-title {
+    grid-area: title;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+}
+.board__social-current-time {
+    grid-area: current;
+    font-size: 32px;
+    font-weight: 200;
+    color: white;
+}
+.board__social-previous-time {
+    grid-area: previous;
+    font-size: 15px;
+    font-weight: 200;
+    color: var(--pale-blue);
+    justify-self: end;    
+}
+.board__social-dots-icon {
+    grid: dots;
+    color: var(--pale-blue);
+    justify-self: end;
+}
+
+/*Self care*/
+.board__card-self-care {
+    grid-area: card-self-care;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "bg"
+    "info";
+    margin-bottom: 24px;
+}
+.board__bg-card-self-care {
+    grid-area: bg;
+    background: var(--soft-orange) url('images/icon-self-care.svg') no-repeat top right / 90.07px 48.28px;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    z-index: 1;
+    top: 10px; 
+}
+.board__card-self-care-info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "title dots"
+    "current previous";
+
+    background-color: var(--dark-blue);
+    position: relative;
+    z-index: 2;
+    border-radius: 15px;
+    padding: 30px;
+}
+.board__self-care-title {
+    grid-area: title;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+}
+.board__self-care-current-time {
+    grid-area: current;
+    font-size: 32px;
+    font-weight: 200;
+    color: white;
+}
+.board__self-care-previous-time {
+    grid-area: previous;
+    font-size: 15px;
+    font-weight: 200;
+    color: var(--pale-blue);
+    justify-self: end;    
+}
+.board__self-care-dots-icon {
+    grid: dots;
+    color: var(--pale-blue);
+    justify-self: end;
+}
+
+/*Desktop*/
+@media screen and (min-width: 1024px) {
+    
+}
