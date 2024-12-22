@@ -123,8 +123,6 @@ body {
 .board__content {
     grid-area: content;
     display: grid;
-    /* justify-content: center;
-    align-items: center; */
     grid-template-columns: auto;
     grid-template-rows: repeat(6, auto);
     grid-template-areas:
@@ -164,7 +162,6 @@ body {
     grid-template-areas: 
     "title dots"
     "current previous";
-
     background-color: var(--dark-blue);
     position: relative;
     z-index: 2;
@@ -192,8 +189,15 @@ body {
 }
 .board__work-dots-icon {
     grid: dots;
-    color: var(--pale-blue);
+    width: 20px;
+    height: 20px;
+    background: url('images/icon-ellipsis.svg') no-repeat center center center;
+    background-size: contain;
+    -webkit-mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    background-color: var(--pale-blue);
     justify-self: end;
+    
 }
 
 .board__card-play {
@@ -224,7 +228,6 @@ body {
     grid-template-areas: 
     "title dots"
     "current previous";
-
     background-color: var(--dark-blue);
     position: relative;
     z-index: 2;
@@ -252,11 +255,17 @@ body {
 }
 .board__play-dots-icon {
     grid: dots;
-    color: var(--pale-blue);
+    width: 20px;
+    height: 20px;
+    background: url('images/icon-ellipsis.svg') no-repeat center center center;
+    background-size: contain;
+    -webkit-mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    background-color: var(--pale-blue);
     justify-self: end;
 }
 
-/*STUDY*/
+/*Study*/
 .board__card-study {
     grid-area: card-study;
     display: grid;
@@ -313,7 +322,13 @@ body {
 }
 .board__study-dots-icon {
     grid: dots;
-    color: var(--pale-blue);
+    width: 20px;
+    height: 20px;
+    background: url('images/icon-ellipsis.svg') no-repeat center center center;
+    background-size: contain;
+    -webkit-mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    background-color: var(--pale-blue);
     justify-self: end;
 }
 
@@ -374,7 +389,13 @@ body {
 }
 .board__exercise-dots-icon {
     grid: dots;
-    color: var(--pale-blue);
+    width: 20px;
+    height: 20px;
+    background: url('images/icon-ellipsis.svg') no-repeat center center center;
+    background-size: contain;
+    -webkit-mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    background-color: var(--pale-blue);
     justify-self: end;
 }
 
@@ -435,7 +456,13 @@ body {
 }
 .board__social-dots-icon {
     grid: dots;
-    color: var(--pale-blue);
+    width: 20px;
+    height: 20px;
+    background: url('images/icon-ellipsis.svg') no-repeat center center center;
+    background-size: contain;
+    -webkit-mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    background-color: var(--pale-blue);
     justify-self: end;
 }
 
@@ -496,11 +523,270 @@ body {
 }
 .board__self-care-dots-icon {
     grid: dots;
-    color: var(--pale-blue);
+    width: 20px;
+    height: 20px;
+    background: url('images/icon-ellipsis.svg') no-repeat center center center;
+    background-size: contain;
+    -webkit-mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    mask: url('images/icon-ellipsis.svg') no-repeat center center;
+    background-color: var(--pale-blue);
     justify-self: end;
 }
 
 /*Desktop*/
 @media screen and (min-width: 1024px) {
+    .board {
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "header content content content"
+        "header content content content";
+        column-gap: 30px;
+    }
+    .board__content {
+        grid-area: content;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "card-work card-play card-study"
+        "card-exercise card-social card-self-care";
+        column-gap: 30px;
+    }
+    .board__content:hover {
+        cursor: pointer;
+    }
+
+    .board__header {
+        grid-area: header;
+        width: 255px;
+        height: 525px;
+        
+    }
+    .board__profile {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto 1fr;
+        grid-template-areas: 
+        "image-profile"
+        "headline"
+        "name";
+        
+    }
+    .board__image-profile {
+        width: 78px;
+        height: 78px;
+        margin-bottom: 43px;
+    }
+    .board__name {
+        font-size: 40px;
+        margin-bottom: 75px;
+        
+    }
+    .board__nav {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto);
+        row-gap: 17px;
+        justify-content: start;
+    }
+
+    .board__card-work-info  {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "title-dots"
+        "current"
+        "previous";
+    }
+    .board__work-title {
+        grid-area: title-dots;
+        margin-bottom: 24px;
+    }
+    .board__work-dots-icon {
+        grid-area: title-dots;
+    }
+    .board__work-current-time {
+        grid-area: current;
+        font-size: 56px;
+    }
+    .board__work-previous-time {
+        grid-area: previous;
+        justify-self: start;
+        margin-bottom: 8px;
+    }
+
+    .board__card-exercise-info {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "title-dots"
+        "current"
+        "previous";
+    }
+    .board__exercise-title {
+        grid-area: title-dots;
+        margin-bottom: 24px;
+    }
+    .board__exercise-dots-icon {
+        grid-area: title-dots;
+    }
+    .board__exercise-current-time {
+        grid-area: current;
+        font-size: 56px;
+    }
+    .board__exercise-previous-time {
+        grid-area: previous;
+        justify-self: start;
+        margin-bottom: 8px;
+    }
+
+    .board__card-play-info {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "title-dots"
+        "current"
+        "previous";
+    }
+    .board__play-title {
+        grid-area: title-dots;
+        margin-bottom: 24px;
+    }
+    .board__play-dots-icon {
+        grid-area: title-dots;
+    }
+    .board__play-current-time {
+        grid-area: current;
+        font-size: 56px;
+    }
+    .board__play-previous-time {
+        grid-area: previous;
+        justify-self: start;
+        margin-bottom: 8px;
+    }
+
+    .board__card-social-info {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "title-dots"
+        "current"
+        "previous";
+    }
+    .board__social-title {
+        grid-area: title-dots;
+        margin-bottom: 24px;
+    }
+    .board__social-dots-icon {
+        grid-area: title-dots;
+    }
+    .board__social-current-time {
+        grid-area: current;
+        font-size: 56px;
+    }
+    .board__social-previous-time {
+        grid-area: previous;
+        justify-self: start;
+        margin-bottom: 8px;
+    }
+
+    .board__card-study-info {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "title-dots"
+        "current"
+        "previous";
+    }
+    .board__study-title {
+        grid-area: title-dots;
+        margin-bottom: 24px;
+    }
+    .board__study-dots-icon {
+        grid-area: title-dots;
+    }
+    .board__study-current-time {
+        grid-area: current;
+        font-size: 56px;
+    }
+    .board__study-previous-time {
+        grid-area: previous;
+        justify-self: start;
+        margin-bottom: 8px;
+    }
+
+    .board__card-self-care-info {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "title-dots"
+        "current"
+        "previous";
+    }
+    .board__self-care-title {
+        grid-area: title-dots;
+        margin-bottom: 24px;
+    }
+    .board__self-care-dots-icon {
+        grid-area: title-dots;
+    }
+    .board__self-care-current-time {
+        grid-area: current;
+        font-size: 56px;
+    }
+    .board__self-care-previous-time {
+        grid-area: previous;
+        justify-self: start;
+        margin-bottom: 8px;
+    }
+
+    .board__tab-daily:hover {
+        cursor:pointer;
+    }
+    .board__table-daily_active:active {
+        color: white;
+    }
+
+    .board__tab-weekly:hover {
+        cursor:pointer;
+    }
+    .board__table-weekly_active:active {
+        color: white;
+    }
+
+    .board__tab-monthly:hover {
+        cursor:pointer;
+    }
+    .board__table-monthly_active:active {
+        color: white;
+    }
+
     
+
+    .board__card-info_active:active {
+        background-color: var(--desaturated-blue);
+    }
+    
+    .board__work-dots-icon_active:hover {
+        cursor: pointer;
+        background-color: white;
+    }
+    .board__play-dots-icon_active:hover {
+        cursor: pointer;
+        background-color: white;
+    }
+    .board__study-dots-icon_active:hover {
+        cursor: pointer;
+        background-color: white;
+    }
+    .board__exercise-dots-icon_active:hover {
+        cursor: pointer;
+        background-color: white;
+    }
+    .board__social-dots-icon_active:hover {
+        cursor: pointer;
+        background-color: white;
+    }
+    .board__self-care-dots-icon_active:hover {
+        cursor: pointer;
+        background-color: white;
+    }
 }
